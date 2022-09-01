@@ -37,4 +37,10 @@ public class UserServiceTest extends TestCase {
         User user = userService.checkLogin("root", "roo");
         System.out.println(user);
     }
+
+    @Test
+    public void testCheckLoginSalt() {
+        User user = userService.checkLogin("m8", "test");
+        System.out.println(user);
+    }
 }
