@@ -31,7 +31,30 @@ build/
 
 ### VS Code ###
 .vscode/
-
 ### IntelliJ ###
 .idea/
-/target/
+/out/
+**.class
+/classes/*
+
+# Eclipse
+.settings/
+
+#maven
+dependency-reduced-pom.xml
+pom.xml.versionsBackup
+
+out/
+
+# Gradel
+.gradle/
+
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+note
