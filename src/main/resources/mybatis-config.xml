@@ -33,5 +33,9 @@
         <mapper resource="mappers/user.xml"/>
         <mapper resource="mappers/func.xml"/>
         <mapper resource="mappers/employee.xml"/>
+        <mapper resource="mappers/leaveApplication.xml"/>
+        <mapper resource="mappers/processFlow.xml"/>
+        <mapper resource="mappers/notice.xml"/>
+
     </mappers>
 </configuration>
