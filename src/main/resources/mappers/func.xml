@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="funcmapper">
+    <select id="selectNodeByUserId" parameterType="Long" resultType="com.oa.entity.Node">
+        select distinct n.*
+        from sys_role_user u,
+             sys_role_node rn,
+             sys_node n
+        where u.role_id = rn.role_id
+          and rn.node_id = n.node_id
+          and u.user_id = 1
+        order by n.node_code
+    </select>
+</mapper>

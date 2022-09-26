@@ -1,7 +1,5 @@
 package com.oa.controller;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oa.entity.User;
 import com.oa.service.UserService;
 import com.oa.utils.ResponseUtils;
@@ -12,11 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 @WebServlet("/api/login")
 public class LoginServlet extends HttpServlet {
+    //user example     :    username: m8 , password: test
     private final UserService userService = new UserService();
     //doGet doPost 即使有相同逻辑, 也不能使用super继承
 

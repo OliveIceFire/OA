@@ -78,8 +78,12 @@
                             if (json.code === "0") {
                                 console.info(response);
                                 console.log("log")
-                                // window.location.href = "/index.html";
-                           } else {
+                                sessionStorage.uid = json.data.user.userId;
+                                // sessionStorage 是和浏览器窗口绑定的数据
+                                //localStorage 是持久化稳定的存储数据，不受浏览器是否关闭的影响
+                                sessionStorage.eid = json.data.user.employeeId;
+                                window.location.href = "/index.html";
+                            } else {
                                 $message.error({message: json.message, offset: 100});
                             }
                         });
