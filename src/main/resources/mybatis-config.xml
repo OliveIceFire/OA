@@ -36,6 +36,7 @@
         <mapper resource="mappers/leaveApplication.xml"/>
         <mapper resource="mappers/processFlow.xml"/>
         <mapper resource="mappers/notice.xml"/>
+        <mapper resource="mappers/department.xml"/>
 
     </mappers>
 </configuration>

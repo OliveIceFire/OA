@@ -1,7 +1,9 @@
 package com.oa.controller;
 
+import com.oa.entity.Department;
 import com.oa.entity.Employee;
 import com.oa.entity.Node;
+import com.oa.service.DepartmentService;
 import com.oa.service.EmployeeService;
 import com.oa.service.FuncService;
 import com.oa.utils.ResponseUtils;
@@ -21,6 +23,8 @@ import java.util.Map;
 public class FuncController extends HttpServlet {
     private FuncService funcService = new FuncService();//初始化
     private EmployeeService employeeService = new EmployeeService();
+
+    private DepartmentService departmentService = new DepartmentService();
 
 
     @Override
@@ -47,7 +51,9 @@ public class FuncController extends HttpServlet {
 //        String jsonString = new ResponseUtils().put("nodeList", treeList).toJsonString();
 
         Employee employee = employeeService.selectById(Long.parseLong(eid));
-        String jsonString = new ResponseUtils().put("nodeList", treeList).put("employee", employee).toJsonString();
+        Department department = departmentService.selectById(employee.getDepartmentId());
+        String jsonString = new ResponseUtils().put("nodeList", treeList).put("employee", employee)
+                .put("department", department).toJsonString();
 
         resp.setContentType("application/json;charset=utf-8");
         resp.getWriter().println(jsonString);

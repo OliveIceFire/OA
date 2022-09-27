@@ -29,7 +29,7 @@
 </head>
 <body>
 <div id="app">
-    <el-form ref="leaveForm" :model="form" :rules="rules" label-width="80px">
+    <el-form ref="leaveApplication" :model="form" :rules="rules" label-width="80px">
         <el-descriptions title="请假申请单" :column="1" border>
             <el-descriptions-item label="部门">{{department.departmentName}}</el-descriptions-item>
             <el-descriptions-item label="申请人">{{employee.name}}[{{employee.title}}]
@@ -56,6 +56,8 @@
                                 start-placeholder="开始日期"
                                 end-placeholder="结束日期"
                                 @change="changeTimeRange">
+                            <!--                                日期变化@change-->
+
                         </el-date-picker>
                     </div>
                 </el-form-item>
@@ -68,7 +70,7 @@
 
         </el-descriptions>
         <div style="text-align: center;padding-top: 30px">
-            <el-button type="primary" v-on:click="onSubmit('leaveForm')">立即申请</el-button>
+            <el-button type="primary" v-on:click="onSubmit('leaveApplication')">立即申请</el-button>
         </div>
     </el-form>
 
@@ -99,8 +101,7 @@
                     ]
                 }
             }
-        }
-        , methods: {
+        }, methods: {
             changeTimeRange: function () {
                 console.info(this.form.timeRange);
                 this.form.startTime = this.form.timeRange[0].getTime();
@@ -122,7 +123,7 @@
                             .then(function (response) {
                                 console.info(response);
                                 const json = response.data;
-                                if (json.code == "0") {
+                                if (json.code === "0") {
                                     objApp.$alert("请假单已提交,等待上级审批", {
                                         callback: function () {
                                             window.location.href = "/notice.html";
